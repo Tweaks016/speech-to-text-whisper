@@ -3,7 +3,7 @@ from googletrans import Translator
 from whisper import load_model, transcribe
 import re, torch, io, os
 
-BASE_FILE_DIR = 'C:\\CreedsAve\\speech-to-text-whisper\\file_store'
+BASE_FILE_DIR = '.\\file_store'
 
 # Check for valid youtube url
 def is_valid_youtube_url(url):    
@@ -16,11 +16,11 @@ def youtubeVideoToAudioDownload(link):
     try:
         youtubeObject = YouTube(link)
         youtubeObject = youtubeObject.streams.get_audio_only()
-        audio_file_path = youtubeObject.download(filename='C:\\CreedsAve\\speech-to-text-whisper\\audio_files\\ConvertSpeechFromYoutubeLink.mp3')
+        audio_file_path = youtubeObject.download(filename='.\\audio_files\\ConvertSpeechFromYoutubeLink.mp3')
         return audio_file_path
     except (Exception, KeyError, AttributeError):
         youtubeObject = YouTube(link)
-        audio_file_path = youtubeObject.download(filename='C:\\CreedsAve\\speech-to-text-whisper\\audio_files\\ConvertSpeechFromYoutubeLink.mp3')
+        audio_file_path = youtubeObject.download(filename='.\\audio_files\\ConvertSpeechFromYoutubeLink.mp3')
         youtubeObject = youtubeObject.streams.get_audio_only()
         print("An error has occurred")
     print("Download is completed successfully")

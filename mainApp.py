@@ -38,7 +38,7 @@ def currentTemp():
             elif request.files.get('file'):         # if user uploaded an audio file
                 
                 wavFile = request.files['file']
-                AUDIO_FILE_PATH = os.path.join("C:\\CreedsAve\\speech-to-text-whisper\\audio_files", AUDIO_FILE_NAME_)
+                AUDIO_FILE_PATH = os.path.join(".\\audio_files", AUDIO_FILE_NAME_)
                 filename = wavFile.filename        
                 wavFile.save(AUDIO_FILE_PATH)
                 
